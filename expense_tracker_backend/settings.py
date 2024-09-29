@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pxma$-v^oy8he6*e#y-1d(2rqlg-1!y(&9@yz39%4u*olq()d+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'expense-backend-ggc9a0gsgdd3c4a7.canadacentral-01.azurewebsites.net']
 
@@ -134,10 +134,5 @@ LOGGING = {
     },
 }
 
-
-# CORS_ALLOWED_ORIGINS = [
-#     'http://localhost:3000',  # Frontend app for local development
-#     'https://expense-tracker-alpha-beige.vercel.app/',  # Your production frontend URL
-# ]
 
 CORS_ALLOW_ALL_ORIGINS = True
