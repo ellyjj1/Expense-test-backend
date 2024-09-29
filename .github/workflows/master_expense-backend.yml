@@ -75,20 +75,4 @@ jobs:
         with:
           app-name: 'expense-backend'
           slot-name: 'Production'
-      
-
-      - name: Set up Python virtual environment on server
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
-
-      - name: Run migrations
-        run: |
-          source venv/bin/activate
-          python manage.py migrate
-
-      - name: Collect static files
-        run: |
-          source venv/bin/activate
-          python manage.py collectstatic --noinput
+          
