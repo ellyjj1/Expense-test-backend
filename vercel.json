@@ -1,0 +1,26 @@
+{
+    "builds": [
+        {
+            "src": "expense_tracker_backend/wsgi.py",
+            "use": "@vercel/python",
+            "config": { "maxLambdaSize": "15mb" }
+        },
+        {
+            "src": "build.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "expense_tracker_backend/wsgi.py"
+        }
+    ],
+    "env": {
+        "DJANGO_SETTINGS_MODULE": "expense_tracker_backend.settings",
+        "VERCEL": "1"
+    }
+}
