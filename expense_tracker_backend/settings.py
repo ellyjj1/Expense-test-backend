@@ -18,7 +18,8 @@ SECRET_KEY = 'django-insecure-pxma$-v^oy8he6*e#y-1d(2rqlg-1!y(&9@yz39%4u*olq()d+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'expense-backend-ggc9a0gsgdd3c4a7.canadacentral-01.azurewebsites.net']
+# ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'expense-backend-ggc9a0gsgdd3c4a7.canadacentral-01.azurewebsites.net']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
