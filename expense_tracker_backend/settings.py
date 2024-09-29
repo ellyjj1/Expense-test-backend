@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-pxma$-v^oy8he6*e#y-1d(2rqlg-1!y(&9@yz39%4u*olq()d+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'expense-backend-ggc9a0gsgdd3c4a7.canadacentral-01.azurewebsites.net']
 
 
 # Application definition
@@ -64,22 +64,12 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'expense_tracker_backend.wsgi.application'
-if 'VERCEL' in os.environ:
-    WSGI_APPLICATION = 'api.wsgi.app'
-else:
-    WSGI_APPLICATION = 'expense_tracker_backend.wsgi.application'
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-IS_VERCEL = os.environ.get('VERCEL', False)
+WSGI_APPLICATION = 'expense_tracker_backend.wsgi.application'
 
 load_dotenv()
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL')
-    )
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 # Password validation
