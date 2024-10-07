@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pxma$-v^oy8he6*e#y-1d(2rqlg-1!y(&9@yz39%4u*olq()d+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', 'localhost', 'expense-backend-ggc9a0gsgdd3c4a7.canadacentral-01.azurewebsites.net']
 ALLOWED_HOSTS = ['*']
@@ -152,7 +152,7 @@ APPEND_SLASH = True
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://expense-backend-ggc9a0gsgdd3c4a7.westus-01.azurewebsites.net/',
+    'https://*.azurewebsites.net/, http://127.0.0.1',
 ]
 
 

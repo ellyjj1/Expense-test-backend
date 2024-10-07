@@ -77,7 +77,7 @@ def register(request):
 
     return Response({'message': 'User registered successfully.'}, status=status.HTTP_201_CREATED)
 
-@csrf_exempt
+# @csrf_exempt
 class UserViewSet(viewsets.ViewSet):  # 添加新的视图集
     permission_classes = [IsAdminUser]  # 仅限管理员访问
 
