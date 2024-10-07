@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from django.db.models import Sum
 from django.db import transaction
 from .models import Transaction, TransactionTotals
-from .serializers import TransactionSerializer
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from .serializers import TransactionSerializer, UserSerializer  # Updated import
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser  # 添加此行以限制访问
 
 from rest_framework import generics
 from rest_framework.response import Response
@@ -75,3 +75,26 @@ def register(request):
     user.save()
 
     return Response({'message': 'User registered successfully.'}, status=status.HTTP_201_CREATED)
+
+
+class UserViewSet(viewsets.ViewSet):  # 添加新的视图集
+    permission_classes = [IsAdminUser]  # 仅限管理员访问
+
+    def list(self, request):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)  # 需要创建 UserSerializer
+        return Response(serializer.data)
+
+    @action(detail=True, methods=['POST'])
+    def deactivate(self, request, pk=None):
+        user = User.objects.get(pk=pk)
+        user.is_active = False
+        user.save()
+        return Response({'message': 'User deactivated successfully.'})
+
+    @action(detail=True, methods=['POST'])
+    def deactivate(self, request, pk=None):
+        user = User.objects.get(pk=pk)
+        user.is_active = False
+        user.save()
+        return Response({'message': 'User deactivated successfully.'})
