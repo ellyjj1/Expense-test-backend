@@ -13,6 +13,7 @@ from rest_framework.response import Response
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
+from django.views.decorators.csrf import csrf_exempt  
 
 # Create your views here.
 
@@ -76,7 +77,7 @@ def register(request):
 
     return Response({'message': 'User registered successfully.'}, status=status.HTTP_201_CREATED)
 
-
+@csrf_exempt
 class UserViewSet(viewsets.ViewSet):  # 添加新的视图集
     permission_classes = [IsAdminUser]  # 仅限管理员访问
 
